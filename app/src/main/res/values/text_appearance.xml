@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BaseTextAppearance" parent="@android:style/TextAppearance">
+        <item name="fontFamily">@font/montserrat</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <style name="Heading1" parent="BaseTextAppearance">
+        <item name="android:textSize">60sp</item>
+    </style>
+
+    <style name="Heading2" parent="BaseTextAppearance">
+        <item name="android:textSize">40sp</item>
+    </style>
+
+    <style name="Description" parent="BaseTextAppearance">
+        <item name="android:textSize">15sp</item>
+    </style>
+
+
+    <style name="Hint" parent="BaseTextAppearance">
+        <item name="android:textSize">15sp</item>
+    </style>
+</resources>

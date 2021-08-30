@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.sparrow.weatherapp.presentation.loadlocation.WeatherDataViewModel" />
+
+    </data>
+
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipe_refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:weatherBackground="@{vm.selectedDay.state}"
+            tools:background="#053D75">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true"
+                tools:context=".presentation.weather.WeatherFragment">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/location_entry_layout"
+                    style="@style/LocationEntryTextInputLayout.White"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/screen_margin_start"
+                    android:layout_marginTop="@dimen/section_margin_top"
+                    android:layout_marginEnd="@dimen/screen_margin_end"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/location_entry_edit_text"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:imeOptions="actionGo"
+                        android:inputType="text" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageView
+                    android:id="@+id/weather_state_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:weatherBackground="@{vm.selectedDay.state}"
+                    tools:src="@drawable/ic_rain_background" />
+
+                <TextView
+                    android:id="@+id/min_max_temp_unit_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="o F"
+                    android:textAppearance="@style/Hint"
+                    app:layout_constraintStart_toEndOf="@+id/min_max_temp_value"
+                    app:layout_constraintTop_toTopOf="@+id/min_max_temp_value" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/start_guide_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_begin="@dimen/screen_margin_start" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/end_guide_line"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_end="@dimen/screen_margin_end" />
+
+                <TextView
+                    android:id="@+id/screen_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/weather_title"
+                    android:textAppearance="@style/Heading1"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/location_entry_layout" />
+
+                <TextView
+                    android:id="@+id/city_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.cityName}"
+                    android:textAppearance="@style/Heading2"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/screen_title" />
+
+                <LinearLayout
+                    android:id="@+id/state_hour_container"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="@dimen/section_margin_top"
+                    android:animateLayoutChanges="true"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/city_name">
+
+                    <ImageView
+                        android:id="@+id/weather_state_icon"
+                        android:layout_width="146dp"
+                        android:layout_height="146dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="@dimen/section_margin_top"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                        app:layout_constraintTop_toBottomOf="@+id/city_name"
+                        app:weatherIcon="@{vm.selectedDay.state}"
+                        tools:src="@drawable/ic_rain" />
+
+                    <com.shawnlin.numberpicker.NumberPicker
+                        android:id="@+id/hours_wheel"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_weight="1"
+                        app:layout_constraintBottom_toBottomOf="@+id/weather_state_icon"
+                        app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                        app:layout_constraintStart_toEndOf="@+id/weather_state_icon"
+                        app:layout_constraintTop_toTopOf="@+id/weather_state_icon"
+                        app:np_divider="@android:color/transparent"
+                        app:np_itemSpacing="10dp"
+                        app:np_orientation="vertical"
+                        app:np_selectedTextColor="@color/white"
+                        app:np_textColor="@color/white"
+                        app:np_wheelItemCount="5" />
+                </LinearLayout>
+
+
+                <TextView
+                    android:id="@+id/actual_temp_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/section_margin_top"
+                    android:text="@{vm.actualTemp}"
+                    android:textAppearance="@style/Heading1"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/state_hour_container"
+                    tools:text="20" />
+
+                <TextView
+                    android:id="@+id/actual_temp_unit_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/o_f"
+                    android:textAppearance="@style/Hint"
+                    app:layout_constraintStart_toEndOf="@+id/actual_temp_value"
+                    app:layout_constraintTop_toTopOf="@+id/actual_temp_value" />
+
+                <TextView
+                    android:id="@+id/min_max_temp_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="@{vm.selectedDay.minTemp+ ` / ` + vm.selectedDay.maxTemp}"
+                    android:textAppearance="@style/Heading2"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/weather_condition"
+                    tools:text="22/26" />
+
+
+                <View
+                    android:id="@+id/selected_day_box"
+                    android:layout_width="80dp"
+                    android:layout_height="40dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/white_box_shape"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/min_max_temp_value" />
+
+                <com.shawnlin.numberpicker.NumberPicker
+                    android:id="@+id/days_wheel"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/min_max_temp_value"
+                    app:np_divider="@android:color/transparent"
+                    app:np_orientation="horizontal"
+                    app:np_selectedTextColor="@color/white"
+                    app:np_textColor="@color/white"
+                    app:np_wheelItemCount="5">
+
+                </com.shawnlin.numberpicker.NumberPicker>
+
+                <TextView
+                    android:id="@+id/weather_condition"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="@{vm.weatherState.stateName}"
+                    android:textAppearance="@style/Hint"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/humidity_label" />
+
+                <TextView
+                    android:id="@+id/humidity_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/humidity"
+                    android:textAppearance="@style/Hint"
+                    app:layout_constraintStart_toStartOf="@+id/start_guide_line"
+                    app:layout_constraintTop_toBottomOf="@+id/actual_temp_value" />
+
+                <TextView
+                    android:id="@+id/humidity_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:text="@{vm.humidity + `%`}"
+                    android:textAppearance="@style/Hint"
+                    app:layout_constraintBottom_toBottomOf="@+id/humidity_label"
+                    app:layout_constraintStart_toEndOf="@+id/humidity_label"
+                    app:layout_constraintTop_toTopOf="@+id/humidity_label"
+                    tools:text="57%" />
+
+                <TextView
+                    android:id="@+id/precipitation_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{vm.precipitation + `%`}"
+                    android:textAppearance="@style/Hint"
+                    app:layout_constraintBottom_toBottomOf="@+id/humidity_label"
+                    app:layout_constraintEnd_toStartOf="@+id/end_guide_line"
+                    app:layout_constraintTop_toTopOf="@+id/humidity_label"
+                    tools:text="4%" />
+
+                <TextView
+                    android:id="@+id/precipitation_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="10dp"
+                    android:text="@string/precipitation"
+                    android:textAppearance="@style/Hint"
+                    app:layout_constraintBottom_toBottomOf="@+id/precipitation_value"
+                    app:layout_constraintEnd_toStartOf="@+id/precipitation_value"
+                    app:layout_constraintTop_toTopOf="@+id/precipitation_value" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </ScrollView>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>

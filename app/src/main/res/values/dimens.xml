@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Screen margins -->
+    <dimen name="screen_margin_start">20dp</dimen>
+    <dimen name="screen_margin_end">20dp</dimen>
+    <dimen name="section_margin_top">30dp</dimen>
+    <dimen name="section_margin_bottom">30dp</dimen>
+
+    <!-- Location box. -->
+    <dimen name="search_box_corner_radius">15dp</dimen>
+
+</resources>

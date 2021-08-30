@@ -1,0 +1,98 @@
+[
+  {
+    "name": "Cairo",
+    "local_names": {
+      "af": "Kaïro",
+      "ar": "القاهرة",
+      "ascii": "Cairo",
+      "az": "Qahirə",
+      "bg": "Кайро",
+      "ca": "El Caire",
+      "da": "Kairo",
+      "de": "Kairo",
+      "el": "Κάιρο",
+      "en": "Cairo",
+      "eu": "Kairo",
+      "fa": "قاهره",
+      "feature_name": "Cairo",
+      "fi": "Kairo",
+      "fr": "Le Caire",
+      "gl": "Cairo - القاهرة",
+      "he": "קהיר",
+      "hr": "Kairo",
+      "hu": "Kairó",
+      "id": "Kairo",
+      "it": "Il Cairo",
+      "ja": "カイロ",
+      "la": "Cairus",
+      "lt": "Kairas",
+      "mk": "Каиро",
+      "nl": "Caïro",
+      "no": "Kairo",
+      "pl": "Kair",
+      "pt": "Cairo",
+      "ro": "Cairo",
+      "ru": "Каир",
+      "sk": "Káhira",
+      "sl": "Kairo",
+      "sr": "Каиро",
+      "th": "ไคโร",
+      "tr": "Kahire",
+      "vi": "Cairo"
+    },
+    "lat": 30.0626,
+    "lon": 31.2497,
+    "country": "EG"
+  }, {
+  "name": "Cairo",
+  "local_names": {
+    "ar": "القاهرة",
+    "ascii": "Cairo",
+    "en": "Cairo",
+    "fa": "کایرو، جورجیا",
+    "feature_name": "Cairo",
+    "ru": "Кейро",
+    "sr": "Кејро"
+  },
+  "lat": 30.8774,
+  "lon": -84.2013,
+  "country": "US",
+  "state": "GA"
+}, {
+  "name": "Cairo",
+  "local_names": {
+    "ar": "القاهرة",
+    "ascii": "Cairo",
+    "fa": "قاهره، ایلینوی",
+    "feature_name": "Cairo",
+    "he": "קהיר",
+    "ja": "カイロ",
+    "sr": "Керо"
+  },
+  "lat": 37.0053,
+  "lon": -89.1765,
+  "country": "US",
+  "state": "IL"
+}, {
+  "name": "Cairo",
+  "local_names": {
+    "ascii": "Cairo",
+    "en": "Cairo",
+    "feature_name": "Cairo"
+  },
+  "lat": 42.299,
+  "lon": -73.9985,
+  "country": "US",
+  "state": "NY"
+}, {
+  "name": "Cairo",
+  "local_names": {
+    "ascii": "Cairo",
+    "feature_name": "Cairo"
+  },
+  "lat": 33.2201,
+  "lon": 92.8699,
+  "country": "US",
+  "state": "AR"
+}
+]
