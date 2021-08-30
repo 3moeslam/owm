@@ -16,7 +16,12 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.util.Calendar
 
-
+/**
+ * Map [OneCallResponse] which loaded from <a href="https://openweathermap.org/api/one-call-api">one-call-api</a>
+ * to displayable data
+ *
+ * @author Eslam Ahmad
+ */
 fun OneCallResponse.toWeatherScreenData(cityName: String): WeatherScreenData {
     val currentZone = Calendar.getInstance().timeZone.toZoneId()
     return WeatherScreenData(
@@ -29,6 +34,12 @@ fun OneCallResponse.toWeatherScreenData(cityName: String): WeatherScreenData {
     )
 }
 
+/**
+ * Map [DailyItem] which is part of  <a href="https://openweathermap.org/api/one-call-api">one-call-api</a>
+ * to displayable data
+ *
+ * @author Eslam Ahmad
+ */
 fun DailyItem.toDayData(id: Int, hourlyData: List<HourlyItem>, currentZone: ZoneId) = DayData(
     id = id,
     name = dt.toZonedTime(currentZone).format(DateTimeFormatter.ofPattern("EEE")),
@@ -42,6 +53,13 @@ fun DailyItem.toDayData(id: Int, hourlyData: List<HourlyItem>, currentZone: Zone
     humidity = humidity
 )
 
+
+/**
+ * Map [HourlyItem] which is part of  <a href="https://openweathermap.org/api/one-call-api">one-call-api</a>
+ * to displayable data
+ *
+ * @author Eslam Ahmad
+ */
 fun HourlyItem.toHourlyData(id: Int, currentZone: ZoneId) = HourlyData(
     state = weather.first().toWeatherState(),
     temp = temp.toInt(),
@@ -52,12 +70,28 @@ fun HourlyItem.toHourlyData(id: Int, currentZone: ZoneId) = HourlyData(
     humidity = humidity
 )
 
-private fun Long.toZonedTime(timeZone: ZoneId) = Instant.ofEpochSecond(this).atZone(timeZone)
-
+/**
+ * Map [FeelsLike] which is part of  <a href="https://openweathermap.org/api/one-call-api">one-call-api</a>
+ * to displayable data
+ *
+ * @author Eslam Ahmad
+ */
 fun FeelsLike.toScreenTemp() = ScreenTemp(eve.toInt(), night.toInt(), day.toInt(), morn.toInt())
 
+/**
+ * Map [Temp] which is part of  <a href="https://openweathermap.org/api/one-call-api">one-call-api</a>
+ * to displayable data
+ *
+ * @author Eslam Ahmad
+ */
 fun Temp.toScreenTemp() = ScreenTemp(eve.toInt(), night.toInt(), day.toInt(), morn.toInt())
 
+/**
+ * Map [WeatherItem] which is part of  <a href="https://openweathermap.org/api/one-call-api">one-call-api</a>
+ * to enum used to differentiate between weather states
+ *
+ * @author Eslam Ahmad
+ */
 fun WeatherItem.toWeatherState() = when (icon) {
     "01n", "01d", "02n", "02d", "03n", "03d", "04n", "04d" -> WeatherState.SUNNY
     "09n", "09d", "10n", "10d" -> WeatherState.RAIN

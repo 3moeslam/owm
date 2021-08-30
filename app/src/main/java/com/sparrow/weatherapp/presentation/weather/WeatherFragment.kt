@@ -1,23 +1,21 @@
 package com.sparrow.weatherapp.presentation.weather
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import androidx.core.view.isVisible
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.sparrow.weatherapp.databinding.FragmentWeatherBinding
 import com.sparrow.weatherapp.entities.DayData
-import com.sparrow.weatherapp.entities.HourlyData
-import com.sparrow.weatherapp.entities.WeatherScreenData
-import com.sparrow.weatherapp.entities.WeatherState
 import com.sparrow.weatherapp.frameworks.android.hideKeyboard
 import com.sparrow.weatherapp.frameworks.android.observe
-import com.sparrow.weatherapp.presentation.loadlocation.WeatherDataViewModel
+import com.sparrow.weatherapp.presentation.WeatherDataViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class WeatherFragment : Fragment() {
 
     private lateinit var binding: FragmentWeatherBinding

@@ -11,6 +11,7 @@ import com.sparrow.weatherapp.R
 import com.sparrow.weatherapp.databinding.FragmentLoadLocationBinding
 import com.sparrow.weatherapp.frameworks.android.hideKeyboard
 import com.sparrow.weatherapp.frameworks.android.observe
+import com.sparrow.weatherapp.presentation.WeatherDataViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

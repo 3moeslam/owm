@@ -10,7 +10,12 @@ import androidx.databinding.BindingAdapter
 import com.sparrow.weatherapp.R
 import com.sparrow.weatherapp.entities.WeatherState
 
-
+/**
+ * Method provide gradient color based on weather state
+ * TODO: move colors to colors file
+ *
+ * @author Eslam Ahmad
+ */
 private fun WeatherState.backgroundColors(): List<String> = when (this) {
     WeatherState.RAIN -> listOf("#0098B1", "#053D75")
     WeatherState.SUNNY -> listOf("#ECBB69", "#E36550")
@@ -18,6 +23,13 @@ private fun WeatherState.backgroundColors(): List<String> = when (this) {
     WeatherState.MIST -> listOf("#79838D", "#B9C6D6")
 }
 
+/**
+ * Method provide weather background icon based on weather state
+ *
+ * @see: XD File
+ *
+ * @author Eslam Ahmad
+ */
 private fun WeatherState.weatherBackgroundIcon(): Int = when (this) {
     WeatherState.RAIN -> R.drawable.ic_rain_background
     WeatherState.SUNNY -> R.drawable.ic_sunny_background
@@ -25,6 +37,13 @@ private fun WeatherState.weatherBackgroundIcon(): Int = when (this) {
     WeatherState.MIST -> R.drawable.ic_mist_background
 }
 
+/**
+ * Method provide weather icon based on weather state
+ *
+ * @see: XD File
+ *
+ * @author Eslam Ahmad
+ */
 private fun WeatherState.weatherIcon(): Int = when (this) {
     WeatherState.RAIN -> R.drawable.ic_rain
     WeatherState.SUNNY -> R.drawable.ic_sunny
@@ -32,6 +51,13 @@ private fun WeatherState.weatherIcon(): Int = when (this) {
     WeatherState.MIST -> R.drawable.ic_mist
 }
 
+/**
+ * binding adapter will change ViewGroup background to Gradient color provided from [backgroundColors]
+ *
+ * @see: XD File
+ *
+ * @author Eslam Ahmad
+ */
 @BindingAdapter("weatherBackground")
 fun bindWeatherBackground(view: ViewGroup, state: WeatherState) {
     GradientDrawable(
@@ -40,16 +66,38 @@ fun bindWeatherBackground(view: ViewGroup, state: WeatherState) {
     ).apply { cornerRadius = 0f }.run { view.background = this }
 }
 
+/**
+ * binding adapter will change ImageView src to image provided from [weatherBackgroundIcon]
+ *
+ * @see: XD File
+ *
+ * @author Eslam Ahmad
+ */
 @BindingAdapter("weatherBackground")
 fun bindWeatherBackground(view: ImageView, state: WeatherState) {
     view.setImageResource(state.weatherBackgroundIcon())
 }
 
+/**
+ * binding adapter will change ImageView src to image provided from [weatherIcon]
+ *
+ * @see: XD File
+ *
+ * @author Eslam Ahmad
+ */
 @BindingAdapter("weatherIcon")
 fun bindWeatherIcon(view: ImageView, state: WeatherState) {
     view.setImageResource(state.weatherIcon())
 }
 
+
+/**
+ * binding adapter will change TextView text string resource provided
+ *
+ * @see: XD File
+ *
+ * @author Eslam Ahmad
+ */
 @BindingAdapter("android:text")
 fun setText(view: TextView, @StringRes resId: Int) {
     if (resId == 0) {

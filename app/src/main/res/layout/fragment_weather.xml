@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.sparrow.weatherapp.presentation.loadlocation.WeatherDataViewModel" />
+            type="com.sparrow.weatherapp.presentation.WeatherDataViewModel" />
 
     </data>
 

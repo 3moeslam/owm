@@ -1,4 +1,4 @@
-package com.sparrow.weatherapp.presentation.loadlocation
+package com.sparrow.weatherapp.presentation
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

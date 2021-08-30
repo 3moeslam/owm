@@ -5,7 +5,12 @@ import com.sparrow.weatherapp.entities.CallResult
 import com.sparrow.weatherapp.entities.ErrorType
 import retrofit2.Response
 
-
+/**
+ * Map retrofit [Response] object to our own type to isolate app from future changes in Retrofit,
+ * this is not a best approach we can create our call adapter, but it isolates for now!
+ *
+ * @author Eslam Ahmad
+ */
 fun <T> Response<T>.toCallResult(): CallResult {
     return if (isSuccessful && body() != null) {
         CallResult.Success(body())

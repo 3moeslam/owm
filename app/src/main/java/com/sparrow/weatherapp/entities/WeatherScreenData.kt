@@ -3,6 +3,14 @@ package com.sparrow.weatherapp.entities
 import androidx.annotation.StringRes
 import com.sparrow.weatherapp.R
 
+/**
+ * Presentable data for one-call-response
+ *
+ * @see <a href="https://openweathermap.org/api/one-call-api">https://openweathermap.org/api/one-call-api</a>
+ * @see: design XD file
+ *
+ * @author Eslam Ahmad
+ */
 data class WeatherScreenData(
     val cityName: String,
     val dailyData: List<DayData>,

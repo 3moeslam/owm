@@ -16,7 +16,14 @@ class HeaderInterceptor : Interceptor {
         chain: Interceptor.Chain,
     ): Response = chain.request()
         .newBuilder()
-        .addHeader("deviceplatform", "android")
+        .addHeader(DEVICE_PLATFORM_KEY, DEVICE_PLATFORM_VALUE)
         .build()
         .let(chain::proceed)
+
+
+    companion object{
+        const val DEVICE_PLATFORM_KEY = "deviceplatform"
+        const val DEVICE_PLATFORM_VALUE = "android"
+
+    }
 }
