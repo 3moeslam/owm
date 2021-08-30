@@ -1,5 +1,6 @@
 package com.sparrow.weatherapp.entities
 
+import androidx.annotation.ColorRes
 import androidx.annotation.StringRes
 import com.sparrow.weatherapp.R
 
@@ -26,7 +27,7 @@ data class DayData(
     val actualTemp: ScreenTemp,
     val feelLikeTemp: ScreenTemp,
     val hourlyData: List<HourlyData>?,
-    val precipitation :Int,
+    val precipitation: Int,
     val humidity: Int,
 )
 
@@ -43,10 +44,10 @@ data class HourlyData(
     val temp: Int,
     val feelLike: Int,
     val hour: String,
-    val precipitation :Int,
+    val precipitation: Int,
     val humidity: Int,
 )
 
-enum class WeatherState(@StringRes val stateName: Int) {
-    RAIN(R.string.rain), SUNNY(R.string.sunny), STORM(R.string.storm), MIST(R.string.mist)
+enum class WeatherState(@StringRes val stateName: Int, @ColorRes val themeColor: Int) {
+    RAIN(R.string.rain, R.color.blue), SUNNY(R.string.sunny, R.color.orange), STORM(R.string.storm, R.color.green), MIST(R.string.mist, R.color.gray)
 }

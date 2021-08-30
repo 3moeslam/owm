@@ -15,4 +15,6 @@
     <string name="humidity">Humidity:</string>
     <string name="precipitation">Precipitation:</string>
     <string name="loading">Loading ...</string>
+    <string name="language">Language</string>
+    <string name="save">Save</string>
 </resources>

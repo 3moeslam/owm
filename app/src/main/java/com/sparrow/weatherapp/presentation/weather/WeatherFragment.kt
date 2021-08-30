@@ -8,8 +8,12 @@ import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.fragment.findNavController
+import com.sparrow.weatherapp.R
 import com.sparrow.weatherapp.databinding.FragmentWeatherBinding
 import com.sparrow.weatherapp.entities.DayData
+import com.sparrow.weatherapp.entities.WeatherState
+import com.sparrow.weatherapp.frameworks.android.changeStatusBarColor
 import com.sparrow.weatherapp.frameworks.android.hideKeyboard
 import com.sparrow.weatherapp.frameworks.android.observe
 import com.sparrow.weatherapp.presentation.WeatherDataViewModel
@@ -48,6 +52,9 @@ class WeatherFragment : Fragment() {
         locationEntryLayout.setEndIconOnClickListener {
             search()
         }
+        settingsIcon.setOnClickListener {
+            findNavController().navigate(R.id.toSettingsFragment)
+        }
     }
 
     private fun search() {
@@ -79,6 +86,11 @@ class WeatherFragment : Fragment() {
     private fun observeViewModelChanges() = with(viewModel) {
         observe(loading, ::onLoadingChanged)
         observe(selectedDay, ::onSelectedDateChanged)
+        observe(weatherState, ::onWeatherStateChanged)
+    }
+
+    private fun onWeatherStateChanged(weatherState: WeatherState) {
+        activity?.changeStatusBarColor(weatherState.themeColor)
     }
 
     private fun onLoadingChanged(isLoading: Boolean) = with(binding) {

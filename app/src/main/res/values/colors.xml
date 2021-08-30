@@ -9,4 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <color name="loading_background_color">#CEEEF4</color>
     <color name="sun_dark_color">#F2BA0B</color>
+    <color name="blue">#053D75</color>
+    <color name="primrose">#E2EEA4</color>
+    <color name="orange">#E36550</color>
+    <color name="green">#065963</color>
+    <color name="gray">#B9C6D6</color>
 </resources>

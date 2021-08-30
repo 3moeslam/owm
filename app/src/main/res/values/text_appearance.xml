@@ -6,19 +6,21 @@
     </style>
 
     <style name="Heading1" parent="BaseTextAppearance">
-        <item name="android:textSize">60sp</item>
+        <item name="android:textSize">40sp</item>
     </style>
 
     <style name="Heading2" parent="BaseTextAppearance">
-        <item name="android:textSize">40sp</item>
+        <item name="android:textSize">30sp</item>
     </style>
 
     <style name="Description" parent="BaseTextAppearance">
         <item name="android:textSize">15sp</item>
     </style>
 
-
     <style name="Hint" parent="BaseTextAppearance">
         <item name="android:textSize">15sp</item>
+    </style>
+    <style name="Hint.Black" parent="Hint">
+        <item name="android:textColor">@color/black</item>>
     </style>
 </resources>
