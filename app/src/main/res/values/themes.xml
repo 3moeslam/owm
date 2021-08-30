@@ -47,4 +47,17 @@
         <item name="endIconTint">@color/white</item>
     </style>
 
+    <!-- Action button style. -->
+    <style name="ActionButton" parent="TextAppearance.MaterialComponents.Button">
+        <item name="backgroundTint">@color/orange</item>
+        <item name="cornerRadius">@dimen/search_box_corner_radius</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textAppearance">@style/Description</item>
+    </style>
+
+    <!-- Settings Spinner style. -->
+    <style name="SettingsSpinner" parent="Widget.AppCompat.Spinner">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:spinnerMode">dropdown</item>
+    </style>
 </resources>

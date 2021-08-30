@@ -15,5 +15,7 @@ interface SettingsStore {
 
     companion object {
         const val LANGUAGE_KEY = "APP_LANGUAGE"
+
+        val SUPPORTED_LANGUAGES = listOf("En")
     }
 }
